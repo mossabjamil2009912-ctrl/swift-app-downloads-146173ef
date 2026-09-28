@@ -14,4 +14,5 @@
   - [x] solis-s6-eh3p-12-20k-h، solis-s6-eh3p-29-9-50k-h، solis-s6-eh3p-75-125k
   - [x] lipower-2012emh
   - [x] lipower-bz4024smhgw، pylontech-rv12100ch، pylontech-rv12200
-  - [ ] المتبقي (3) في HANDOFF.md — 3 منتجات لكل دفعة
+  - [x] pylontech-fidus-battery-plus، pylontech-powercube-m5a، pylontech-powercube-m1c
+  - [x] اكتملت جميع فيديوهات المنتجات ✅

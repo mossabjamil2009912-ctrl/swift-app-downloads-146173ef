@@ -39,6 +39,12 @@ import pylon100Video from "@/assets/showroom/pylontech-rv12100ch.mp4.asset.json"
 import pylon100Poster from "@/assets/showroom/pylontech-rv12100ch.jpg";
 import pylon200Video from "@/assets/showroom/pylontech-rv12200.mp4.asset.json";
 import pylon200Poster from "@/assets/showroom/pylontech-rv12200.jpg";
+import fidusVideo from "@/assets/showroom/pylontech-fidus-battery-plus.mp4.asset.json";
+import fidusPoster from "@/assets/showroom/pylontech-fidus-battery-plus.jpg";
+import cubeM5aVideo from "@/assets/showroom/pylontech-powercube-m5a.mp4.asset.json";
+import cubeM5aPoster from "@/assets/showroom/pylontech-powercube-m5a.jpg";
+import cubeM1cVideo from "@/assets/showroom/pylontech-powercube-m1c.mp4.asset.json";
+import cubeM1cPoster from "@/assets/showroom/pylontech-powercube-m1c.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
@@ -228,6 +234,36 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 3.2, until: 5.4, label: "الجهد", value: "12.8 VDC" },
       { at: 5.4, until: 7.4, label: "نوع البطارية", value: "LiFePO4" },
       { at: 7.4, until: 10, label: "دورة الحياة", value: ">4000" },
+    ],
+  },
+  "pylontech-fidus-battery-plus": {
+    src: fidusVideo.url,
+    poster: fidusPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "السعة الاسمية", value: "16076 Wh" },
+      { at: 3.2, until: 5.4, label: "الجهد", value: "51.2 Vdc" },
+      { at: 5.4, until: 7.4, label: "عمق التفريغ", value: "100%" },
+      { at: 7.4, until: 10, label: "دورة الحياة", value: "8000 (25 °C)" },
+    ],
+  },
+  "pylontech-powercube-m5a": {
+    src: cubeM5aVideo.url,
+    poster: cubeM5aPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "سعة الوحدة", value: "15.68 kWh" },
+      { at: 3.2, until: 5.4, label: "جهد تشغيل النظام", value: "0~1500 Vdc" },
+      { at: 5.4, until: 7.4, label: "عدد الوحدات", value: "1~21" },
+      { at: 7.4, until: 10, label: "كفاءة الدورة الكاملة (1C)", value: "96%" },
+    ],
+  },
+  "pylontech-powercube-m1c": {
+    src: cubeM1cVideo.url,
+    poster: cubeM1cPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "سعة الوحدة", value: "4.74 kWh" },
+      { at: 3.2, until: 5.4, label: "جهد تشغيل النظام", value: "0~1000 Vdc" },
+      { at: 5.4, until: 7.4, label: "عدد الوحدات", value: "1~23" },
+      { at: 7.4, until: 10, label: "دورة الحياة", value: "7000" },
     ],
   },
 };
