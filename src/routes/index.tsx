@@ -232,6 +232,15 @@ function ActesApp() {
   }, [uiLang]);
   const sendWhatsapp = useServerFn(notifyAdminWhatsapp);
 
+  // تحميل صور خطوات الطلب مسبقاً حتى تظهر فوراً عند الانتقال إليها.
+  useEffect(() => {
+    [residentialImage, commercialImage, agricultureImage, industrialImage].forEach((src) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    });
+  }, []);
+
   // رسالة نجاح الإشعار تختفي تلقائياً بعد ٣ ثوانٍ
   useEffect(() => {
     if (notificationStatus !== "sent") return;
