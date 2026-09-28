@@ -152,6 +152,36 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 7.4, until: 10, label: "أقصى كفاءة", value: "96.0%" },
     ],
   },
+  "solis-s6-eh3p-12-20k-h": {
+    src: solis20kVideo.url,
+    poster: solis20kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "12 – 20 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase — 3/N/PE، 230/400V" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "120–800 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.7%" },
+    ],
+  },
+  "solis-s6-eh3p-29-9-50k-h": {
+    src: solis50kVideo.url,
+    poster: solis50kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "29.9 – 50 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase — 3/N/PE، 230/400V" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "150–800 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.8%" },
+    ],
+  },
+  "solis-s6-eh3p-75-125k": {
+    src: solis125kVideo.url,
+    poster: solis125kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "75 – 125 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase — 3/N/PE، 230/400V" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "300–950 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.5%" },
+    ],
+  },
 };
 
 export function getProductVideo(productId: string): ProductVideo | null {
