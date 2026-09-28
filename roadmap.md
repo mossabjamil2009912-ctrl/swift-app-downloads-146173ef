@@ -6,3 +6,7 @@
   - [ ] دمج شعار أكتس الحقيقي (user-uploads://1790192517865.png) على الزيّ في كل صورة
   - [ ] حفظها في src/assets/card-quote.jpg / card-energy.jpg / card-support.jpg
   - [ ] التحقق بالمعاينة على سطح المكتب
+
+- [ ] فيديوهات المنتجات بأسلوب الدفعة الأولى (المنتج على أرضية المعرض، بلا بطاقة بيضاء)
+  - [ ] إعادة الدفعة الثانية: hithium-heroee-maxpower-16، deye-sun-3-6k-sg04lp1، suntech-stp720s-d66-nsh
+  - [ ] المنتجات المتبقية في HANDOFF.md
