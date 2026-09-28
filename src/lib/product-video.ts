@@ -236,6 +236,36 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 7.4, until: 10, label: "دورة الحياة", value: ">4000" },
     ],
   },
+  "pylontech-fidus-battery-plus": {
+    src: fidusVideo.url,
+    poster: fidusPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "السعة الاسمية", value: "16076 Wh" },
+      { at: 3.2, until: 5.4, label: "الجهد", value: "51.2 Vdc" },
+      { at: 5.4, until: 7.4, label: "عمق التفريغ", value: "100%" },
+      { at: 7.4, until: 10, label: "دورة الحياة", value: "8000 (25 °C)" },
+    ],
+  },
+  "pylontech-powercube-m5a": {
+    src: cubeM5aVideo.url,
+    poster: cubeM5aPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "سعة الوحدة", value: "15.68 kWh" },
+      { at: 3.2, until: 5.4, label: "جهد تشغيل النظام", value: "0~1500 Vdc" },
+      { at: 5.4, until: 7.4, label: "عدد الوحدات", value: "1~21" },
+      { at: 7.4, until: 10, label: "كفاءة الدورة الكاملة (1C)", value: "96%" },
+    ],
+  },
+  "pylontech-powercube-m1c": {
+    src: cubeM1cVideo.url,
+    poster: cubeM1cPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "سعة الوحدة", value: "4.74 kWh" },
+      { at: 3.2, until: 5.4, label: "جهد تشغيل النظام", value: "0~1000 Vdc" },
+      { at: 5.4, until: 7.4, label: "عدد الوحدات", value: "1~23" },
+      { at: 7.4, until: 10, label: "دورة الحياة", value: "7000" },
+    ],
+  },
 };
 
 export function getProductVideo(productId: string): ProductVideo | null {
