@@ -31,6 +31,8 @@ import solis50kVideo from "@/assets/showroom/solis-s6-eh3p-29-9-50k-h.mp4.asset.
 import solis50kPoster from "@/assets/showroom/solis-s6-eh3p-29-9-50k-h.jpg";
 import solis125kVideo from "@/assets/showroom/solis-s6-eh3p-75-125k.mp4.asset.json";
 import solis125kPoster from "@/assets/showroom/solis-s6-eh3p-75-125k.jpg";
+import lipower2012Video from "@/assets/showroom/lipower-2012emh.mp4.asset.json";
+import lipower2012Poster from "@/assets/showroom/lipower-2012emh.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
@@ -180,6 +182,16 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase — 3/N/PE، 230/400V" },
       { at: 5.4, until: 7.4, label: "جهد البطارية", value: "300–950 V" },
       { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.5%" },
+    ],
+  },
+  "lipower-2012emh": {
+    src: lipower2012Video.url,
+    poster: lipower2012Poster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "1600 W" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Single Phase Hybrid" },
+      { at: 5.4, until: 7.4, label: "أقصى قدرة PV", value: "2000 W" },
+      { at: 7.4, until: 10, label: "نوع الشحن الشمسي", value: "MPPT — 30–500 Vdc" },
     ],
   },
 };
