@@ -15,6 +15,10 @@ import hithiumVideo from "@/assets/showroom/hithium-heroee-maxpower-16.mp4.asset
 import hithiumPoster from "@/assets/showroom/hithium-heroee-maxpower-16.jpg";
 import suntech720Video from "@/assets/showroom/suntech-stp720s-d66-nsh.mp4.asset.json";
 import suntech720Poster from "@/assets/showroom/suntech-stp720s-d66-nsh.jpg";
+import deye12kVideo from "@/assets/showroom/deye-sun-7-6-12k-sg02lp1.mp4.asset.json";
+import deye12kPoster from "@/assets/showroom/deye-sun-7-6-12k-sg02lp1.jpg";
+import deye20kVideo from "@/assets/showroom/deye-sun-14-20k-sg05lp3.mp4.asset.json";
+import deye20kPoster from "@/assets/showroom/deye-sun-14-20k-sg05lp3.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
