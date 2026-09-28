@@ -29,14 +29,15 @@
 كل فيديو: مشهد واقعي داخل معرض ACTES، حركة كاميرا حول المنتج نفسه (نفس الموديل من الكتالوج)،
 مدة ~10 ثوانٍ 1080p، مع بطاقات مواصفات متزامنة (cues) مأخوذة من الكتالوج الرسمي فقط.
 
-### المنجز (8)
+### المنجز (11)
 `lipower-bz6248smh` · `suntech-stp595s-c72-nsh` · `pylontech-rv12314` ·
 `deye-sun-3-6k-sg04lp1` · `hithium-heroee-maxpower-16` · `suntech-stp720s-d66-nsh` ·
-`deye-sun-7-6-12k-sg02lp1` · `deye-sun-14-20k-sg05lp3`
+`deye-sun-7-6-12k-sg02lp1` · `deye-sun-14-20k-sg05lp3` ·
+`deye-sun-29-9-50k-sg01hp3` · `deye-sun-60-80k-sg02hp3` · `solis-s6-eh2p-5-8k`
 
-### المتبقي (13)
-`deye-sun-29-9-50k-sg01hp3` ·
-`deye-sun-60-80k-sg02hp3` · `solis-s6-eh2p-5-8k` · `solis-s6-eh3p-12-20k-h` ·
+### المتبقي (10)
+·
+`solis-s6-eh3p-12-20k-h` ·
 `solis-s6-eh3p-29-9-50k-h` · `solis-s6-eh3p-75-125k` · `lipower-2012emh` ·
 `lipower-bz4024smhgw` · `pylontech-rv12100ch` · `pylontech-rv12200` ·
 `pylontech-fidus-battery-plus` · `pylontech-powercube-m5a` · `pylontech-powercube-m1c`
@@ -44,7 +45,7 @@
 ### أسلوب المشهد المعتمد (طلب المستخدم)
 المنتج كعنصر ثلاثي الأبعاد واقعي على أرضية/منصة المعرض — **بدون بطاقة بيضاء وبدون إطار خلفه**. يُنشأ المشهد بدمج صورة المنتج في مشهد مرجعي (`suntech-stp595s-c72-nsh.jpg` أو `pylontech-rv12314.jpg`) عبر أداة تعديل الصور. الخطوة 1 أدناه (البطاقة البيضاء) ملغاة.
 
-حالة الدفعة الحالية: مكتملة ✅ — `suntech-stp720s-d66-nsh` و`deye-sun-7-6-12k-sg02lp1` و`deye-sun-14-20k-sg05lp3`
+حالة الدفعة الحالية: مكتملة ✅ — `deye-sun-29-9-50k-sg01hp3` و`deye-sun-60-80k-sg02hp3` و`solis-s6-eh2p-5-8k`
 وُلّدت بأسلوب الأرضية ورُبطت في `src/lib/product-video.ts` مع بطاقات مواصفات من الكتالوج.
 
 
