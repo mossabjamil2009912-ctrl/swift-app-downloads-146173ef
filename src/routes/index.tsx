@@ -1890,7 +1890,7 @@ function SystemSpecs({ specs }: { specs: View["specs"] }) {
       </div>
       <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
         {specs.map((group, index) => {
-          const presentation = getSpecPresentation(group.title, index);
+          const presentation = getSpecPresentation(group.title, group.lines, index);
           const Icon = presentation.icon;
           return (
             <article key={index} className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
