@@ -75,9 +75,7 @@ import actesAvatar from "@/assets/actes-a-mark.webp";
 import actesMark from "@/assets/actes-a-mark.webp";
 import actesWordmark from "@/assets/actes-logo-full.webp";
 
-import solarPanelImage from "@/assets/product-solar-panel.webp";
-import inverterImage from "@/assets/product-inverter.webp";
-import batteryImage from "@/assets/product-battery.webp";
+import { findCatalogProductByText, productsByCategory } from "@/lib/products-data";
 import { runBot, type BotResult, type BotSession } from "@/lib/bot-engine.js";
 import { buildView, formatSystemName, money, type View } from "@/lib/present";
 import { CERTIFICATES, CERTIFICATES_TITLE } from "@/lib/warranty";
