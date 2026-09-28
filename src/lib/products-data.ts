@@ -894,3 +894,59 @@ export function quickSpecs(product: Product, limit = 6): [string, string][] {
   return rows.slice(0, limit);
 }
 
+/** يوحّد النص لمقارنة الموديلات: أحرف كبيرة بدون فواصل أو رموز. */
+function normalizeModel(text: string) {
+  return text.toUpperCase().replace(/[^A-Z0-9]/g, "");
+}
+
+const ARABIC_BRANDS: { pattern: RegExp; brand: string }[] = [
+  { pattern: /سنتك|SUNTECH/i, brand: "Suntech" },
+  { pattern: /داي|دي\s*اي|DEYE/i, brand: "Deye" },
+  { pattern: /سوليس|SOLIS/i, brand: "Solis" },
+  { pattern: /لايف?\s*باور|لي\s*باور|LI-?POWER/i, brand: "Li-Power" },
+  { pattern: /بايلونتك|بايلونتيك|PYLONTECH/i, brand: "Pylontech" },
+  { pattern: /هايثيوم|HITHIUM|HEROEE/i, brand: "HiTHIUM (HeroEE)" },
+];
+
+/**
+ * يعثر على منتج الكتالوج المطابق لنص بند المنظومة (اسم البند + أسطر مواصفاته).
+ * المطابقة بالموديل الرسمي أولاً، ثم بالقدرة للألواح، ثم بالعلامة التجارية داخل نفس الفئة.
+ * لا تخمين: تعيد null إذا لم يوجد تطابق موثوق.
+ */
+export function findCatalogProductByText(text: string, category?: ProductCategory): Product | null {
+  const norm = normalizeModel(text);
+  const pool = category ? PRODUCTS.filter((p) => p.category === category) : PRODUCTS;
+
+  // 1) مطابقة الموديل الرسمي (كل بديل مذكور في حقل الموديل)
+  let best: Product | null = null;
+  let bestLen = 0;
+  for (const product of pool) {
+    for (const variant of product.model.split(/[/|،,]/)) {
+      const token = normalizeModel(variant);
+      if (token.length >= 6 && norm.includes(token) && token.length > bestLen) {
+        best = product;
+        bestLen = token.length;
+      }
+    }
+  }
+  if (best) return best;
+
+  // 2) الألواح: مطابقة القدرة المذكورة (595 / 720 وات)
+  if (!category || category === "panels") {
+    const watt = text.match(/(\d{3})\s*(?:وات|واط|W\b)/i);
+    if (watt && watt[1]) {
+      const panel = PRODUCTS.find((p) => p.category === "panels" && p.power.includes(watt[1]!));
+      if (panel) return panel;
+    }
+  }
+
+  // 3) العلامة التجارية داخل نفس الفئة
+  const brandHit = ARABIC_BRANDS.find((b) => b.pattern.test(text));
+  if (brandHit) {
+    const byBrand = pool.find((p) => p.brand === brandHit.brand);
+    if (byBrand) return byBrand;
+  }
+
+  return null;
+}
+

@@ -75,9 +75,7 @@ import actesAvatar from "@/assets/actes-a-mark.webp";
 import actesMark from "@/assets/actes-a-mark.webp";
 import actesWordmark from "@/assets/actes-logo-full.webp";
 
-import solarPanelImage from "@/assets/product-solar-panel.webp";
-import inverterImage from "@/assets/product-inverter.webp";
-import batteryImage from "@/assets/product-battery.webp";
+import { findCatalogProductByText, productsByCategory } from "@/lib/products-data";
 import { runBot, type BotResult, type BotSession } from "@/lib/bot-engine.js";
 import { buildView, formatSystemName, money, type View } from "@/lib/present";
 import { CERTIFICATES, CERTIFICATES_TITLE } from "@/lib/warranty";
@@ -1833,10 +1831,18 @@ function MediaGallery({ images }: { images: View["images"] }) {
 
 const SPEC_ICONS = [Sun, Zap, BatteryCharging, Network, Settings];
 
-function getSpecPresentation(title: string, index: number) {
-  if (/لوح|ألواح|شمسي/.test(title)) return { image: solarPanelImage, label: "الألواح الشمسية", icon: Sun };
-  if (/انفرتر|إنفرتر|عاكس/.test(title)) return { image: inverterImage, label: "الإنفرتر", icon: Zap };
-  if (/بطارية|تخزين/.test(title)) return { image: batteryImage, label: "البطارية", icon: BatteryCharging };
+/** صورة المكوّن تُؤخذ من صور الكتالوج الرسمية فقط — بمطابقة الموديل ثم القدرة ثم العلامة التجارية. */
+function catalogImageFor(text: string, category: "panels" | "inverters" | "batteries") {
+  const matched = findCatalogProductByText(text, category);
+  if (matched) return matched.image;
+  return productsByCategory(category)[0]?.image ?? null;
+}
+
+function getSpecPresentation(title: string, lines: string[], index: number) {
+  const text = [title, ...lines].join(" ");
+  if (/لوح|ألواح|شمسي/.test(title)) return { image: catalogImageFor(text, "panels"), label: "الألواح الشمسية", icon: Sun };
+  if (/انفرتر|إنفرتر|عاكس/.test(title)) return { image: catalogImageFor(text, "inverters"), label: "الإنفرتر", icon: Zap };
+  if (/بطارية|تخزين/.test(title)) return { image: catalogImageFor(text, "batteries"), label: "البطارية", icon: BatteryCharging };
   return { image: null, label: title, icon: SPEC_ICONS[index % SPEC_ICONS.length] ?? Settings };
 }
 
@@ -1884,7 +1890,7 @@ function SystemSpecs({ specs }: { specs: View["specs"] }) {
       </div>
       <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
         {specs.map((group, index) => {
-          const presentation = getSpecPresentation(group.title, index);
+          const presentation = getSpecPresentation(group.title, group.lines, index);
           const Icon = presentation.icon;
           return (
             <article key={index} className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
