@@ -1561,7 +1561,7 @@ function OptionGrid({ options, selected, projectCards = false, onSelect }: { opt
           return (
             <button key={`${option.id}-${index}`} type="button" onClick={() => onSelect(option.id)} className={`group overflow-hidden rounded-lg border bg-card text-right shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg ${index === 1 ? "border-brand ring-1 ring-brand" : "border-border"}`}>
               <span data-photo-frame className="relative block aspect-[1.45/1] w-full overflow-hidden border-b border-border bg-muted">
-                <img data-photo src={visual.image} alt="" loading="eager" decoding="sync" fetchPriority="high" className={`size-full object-contain p-1 transition duration-500 group-hover:scale-[1.03] ${inactive ? "opacity-65" : ""}`} />
+                <img data-photo src={visual.image} alt="" loading="eager" decoding="async" fetchPriority="high" className={`size-full object-contain p-1 transition duration-500 group-hover:scale-[1.03] ${inactive ? "opacity-65" : ""}`} />
                 {inactive && <span className="absolute right-2 top-2 rounded-full bg-overlay/55 px-2 py-0.5 text-[10px] font-bold text-brand-foreground">قريباً</span>}
                 <span className={`absolute -bottom-4 right-3 grid size-10 place-items-center rounded-full border-[3px] border-card ${index === 1 ? "bg-brand text-brand-foreground" : "bg-secondary text-skyline"}`}><Icon className="size-4" /></span>
               </span>
@@ -1888,7 +1888,7 @@ function SystemSpecs({ specs }: { specs: View["specs"] }) {
               </div>
               {presentation.image && (
                 <div data-photo-section className="flex h-20 items-center justify-center px-3 py-1">
-                  <img src={presentation.image} loading="lazy" width={912} height={912} alt={group.title} className="size-full object-contain" />
+                  <img src={presentation.image} loading="eager" decoding="async" width={912} height={912} alt={group.title} className="size-full object-contain" />
                 </div>
               )}
               <ul className="mx-2 mb-2 grid gap-1">
