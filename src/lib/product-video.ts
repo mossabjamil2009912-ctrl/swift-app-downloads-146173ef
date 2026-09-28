@@ -15,6 +15,10 @@ import hithiumVideo from "@/assets/showroom/hithium-heroee-maxpower-16.mp4.asset
 import hithiumPoster from "@/assets/showroom/hithium-heroee-maxpower-16.jpg";
 import suntech720Video from "@/assets/showroom/suntech-stp720s-d66-nsh.mp4.asset.json";
 import suntech720Poster from "@/assets/showroom/suntech-stp720s-d66-nsh.jpg";
+import deye12kVideo from "@/assets/showroom/deye-sun-7-6-12k-sg02lp1.mp4.asset.json";
+import deye12kPoster from "@/assets/showroom/deye-sun-7-6-12k-sg02lp1.jpg";
+import deye20kVideo from "@/assets/showroom/deye-sun-14-20k-sg05lp3.mp4.asset.json";
+import deye20kPoster from "@/assets/showroom/deye-sun-14-20k-sg05lp3.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
@@ -84,6 +88,26 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 3.4, until: 6.0, label: "نوع الخلية", value: "N-Type TOPCon زجاج-زجاج ثنائي الوجه" },
       { at: 6.0, until: 8.0, label: "كفاءة اللوح", value: "23.2%" },
       { at: 8.0, until: 10, label: "عدد الخلايا", value: "132 خلية" },
+    ],
+  },
+  "deye-sun-7-6-12k-sg02lp1": {
+    src: deye12kVideo.url,
+    poster: deye12kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "7.6 – 12 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Single Phase Hybrid" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "40–60 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.6%" },
+    ],
+  },
+  "deye-sun-14-20k-sg05lp3": {
+    src: deye20kVideo.url,
+    poster: deye20kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "14 – 20 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase Hybrid — 3L+N+PE" },
+      { at: 5.4, until: 7.4, label: "أقصى جهد PV", value: "800 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.6%" },
     ],
   },
 };
