@@ -39,6 +39,12 @@ import pylon100Video from "@/assets/showroom/pylontech-rv12100ch.mp4.asset.json"
 import pylon100Poster from "@/assets/showroom/pylontech-rv12100ch.jpg";
 import pylon200Video from "@/assets/showroom/pylontech-rv12200.mp4.asset.json";
 import pylon200Poster from "@/assets/showroom/pylontech-rv12200.jpg";
+import fidusVideo from "@/assets/showroom/pylontech-fidus-battery-plus.mp4.asset.json";
+import fidusPoster from "@/assets/showroom/pylontech-fidus-battery-plus.jpg";
+import cubeM5aVideo from "@/assets/showroom/pylontech-powercube-m5a.mp4.asset.json";
+import cubeM5aPoster from "@/assets/showroom/pylontech-powercube-m5a.jpg";
+import cubeM1cVideo from "@/assets/showroom/pylontech-powercube-m1c.mp4.asset.json";
+import cubeM1cPoster from "@/assets/showroom/pylontech-powercube-m1c.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
