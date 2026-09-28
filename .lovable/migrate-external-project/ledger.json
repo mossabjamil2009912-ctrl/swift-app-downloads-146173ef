@@ -1,0 +1,11 @@
+{
+  "source": "code-archive (swift-app-downloads Lovable project export)",
+  "capabilities": [
+    { "capability": "application code (ACTES solar app, TanStack Start)", "source": "archive", "outcome": "copied as-is", "status": "verified", "next_action": null },
+    { "capability": "database schema (orders, notifications)", "source": "supabase/migrations", "outcome": "applied to Lovable Cloud", "status": "verified", "next_action": null },
+    { "capability": "existing records (orders/notifications data)", "source": "not included in archive", "outcome": "pending export from original project", "status": "pending", "next_action": "request CSV/JSON export of orders and notifications tables" },
+    { "capability": "auth users", "source": "not included in archive", "outcome": "pending", "status": "pending", "next_action": "request user export if the original app had accounts" },
+    { "capability": "secrets (.env of original project)", "source": "archive .env excluded", "outcome": "replaced by this project's own Lovable Cloud keys", "status": "done", "next_action": null },
+    { "capability": "build & preview", "source": "project", "outcome": "build OK, home page renders (ACTES)", "status": "verified", "next_action": null }
+  ]
+}
