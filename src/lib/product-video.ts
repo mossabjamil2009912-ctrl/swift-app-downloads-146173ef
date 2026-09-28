@@ -33,6 +33,12 @@ import solis125kVideo from "@/assets/showroom/solis-s6-eh3p-75-125k.mp4.asset.js
 import solis125kPoster from "@/assets/showroom/solis-s6-eh3p-75-125k.jpg";
 import lipower2012Video from "@/assets/showroom/lipower-2012emh.mp4.asset.json";
 import lipower2012Poster from "@/assets/showroom/lipower-2012emh.jpg";
+import lipower4kVideo from "@/assets/showroom/lipower-bz4024smhgw.mp4.asset.json";
+import lipower4kPoster from "@/assets/showroom/lipower-bz4024smhgw.jpg";
+import pylon100Video from "@/assets/showroom/pylontech-rv12100ch.mp4.asset.json";
+import pylon100Poster from "@/assets/showroom/pylontech-rv12100ch.jpg";
+import pylon200Video from "@/assets/showroom/pylontech-rv12200.mp4.asset.json";
+import pylon200Poster from "@/assets/showroom/pylontech-rv12200.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
@@ -192,6 +198,36 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 3.2, until: 5.4, label: "نوع النظام", value: "Single Phase Hybrid" },
       { at: 5.4, until: 7.4, label: "أقصى قدرة PV", value: "2000 W" },
       { at: 7.4, until: 10, label: "نوع الشحن الشمسي", value: "MPPT — 30–500 Vdc" },
+    ],
+  },
+  "lipower-bz4024smhgw": {
+    src: lipower4kVideo.url,
+    poster: lipower4kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة (بطارية)", value: "4000 W" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Single Phase Hybrid" },
+      { at: 5.4, until: 7.4, label: "أقصى قدرة PV", value: "6500 W" },
+      { at: 7.4, until: 10, label: "نوع الشحن الشمسي", value: "MPPT — 60–500 Vdc" },
+    ],
+  },
+  "pylontech-rv12100ch": {
+    src: pylon100Video.url,
+    poster: pylon100Poster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "السعة", value: "100 Ah" },
+      { at: 3.2, until: 5.4, label: "الطاقة", value: "1280 Wh" },
+      { at: 5.4, until: 7.4, label: "الجهد", value: "12.8 VDC" },
+      { at: 7.4, until: 10, label: "نوع البطارية", value: "LiFePO4" },
+    ],
+  },
+  "pylontech-rv12200": {
+    src: pylon200Video.url,
+    poster: pylon200Poster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "السعة", value: "200 Ah" },
+      { at: 3.2, until: 5.4, label: "الجهد", value: "12.8 VDC" },
+      { at: 5.4, until: 7.4, label: "نوع البطارية", value: "LiFePO4" },
+      { at: 7.4, until: 10, label: "دورة الحياة", value: ">4000" },
     ],
   },
 };
