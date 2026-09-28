@@ -25,6 +25,12 @@ import deye80kVideo from "@/assets/showroom/deye-sun-60-80k-sg02hp3.mp4.asset.js
 import deye80kPoster from "@/assets/showroom/deye-sun-60-80k-sg02hp3.jpg";
 import solis8kVideo from "@/assets/showroom/solis-s6-eh2p-5-8k.mp4.asset.json";
 import solis8kPoster from "@/assets/showroom/solis-s6-eh2p-5-8k.jpg";
+import solis20kVideo from "@/assets/showroom/solis-s6-eh3p-12-20k-h.mp4.asset.json";
+import solis20kPoster from "@/assets/showroom/solis-s6-eh3p-12-20k-h.jpg";
+import solis50kVideo from "@/assets/showroom/solis-s6-eh3p-29-9-50k-h.mp4.asset.json";
+import solis50kPoster from "@/assets/showroom/solis-s6-eh3p-29-9-50k-h.jpg";
+import solis125kVideo from "@/assets/showroom/solis-s6-eh3p-75-125k.mp4.asset.json";
+import solis125kPoster from "@/assets/showroom/solis-s6-eh3p-75-125k.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
