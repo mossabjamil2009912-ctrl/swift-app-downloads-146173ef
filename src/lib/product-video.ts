@@ -90,6 +90,26 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 8.0, until: 10, label: "عدد الخلايا", value: "132 خلية" },
     ],
   },
+  "deye-sun-7-6-12k-sg02lp1": {
+    src: deye12kVideo.url,
+    poster: deye12kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "7.6 – 12 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Single Phase Hybrid" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "40–60 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.6%" },
+    ],
+  },
+  "deye-sun-14-20k-sg05lp3": {
+    src: deye20kVideo.url,
+    poster: deye20kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "14 – 20 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase Hybrid — 3L+N+PE" },
+      { at: 5.4, until: 7.4, label: "أقصى جهد PV", value: "800 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.6%" },
+    ],
+  },
 };
 
 export function getProductVideo(productId: string): ProductVideo | null {
