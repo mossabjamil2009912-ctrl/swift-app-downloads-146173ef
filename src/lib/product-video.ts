@@ -19,6 +19,12 @@ import deye12kVideo from "@/assets/showroom/deye-sun-7-6-12k-sg02lp1.mp4.asset.j
 import deye12kPoster from "@/assets/showroom/deye-sun-7-6-12k-sg02lp1.jpg";
 import deye20kVideo from "@/assets/showroom/deye-sun-14-20k-sg05lp3.mp4.asset.json";
 import deye20kPoster from "@/assets/showroom/deye-sun-14-20k-sg05lp3.jpg";
+import deye50kVideo from "@/assets/showroom/deye-sun-29-9-50k-sg01hp3.mp4.asset.json";
+import deye50kPoster from "@/assets/showroom/deye-sun-29-9-50k-sg01hp3.jpg";
+import deye80kVideo from "@/assets/showroom/deye-sun-60-80k-sg02hp3.mp4.asset.json";
+import deye80kPoster from "@/assets/showroom/deye-sun-60-80k-sg02hp3.jpg";
+import solis8kVideo from "@/assets/showroom/solis-s6-eh2p-5-8k.mp4.asset.json";
+import solis8kPoster from "@/assets/showroom/solis-s6-eh2p-5-8k.jpg";
 
 /** بطاقة مواصفة تظهر على الفيديو من الثانية `at` حتى `until`. */
 export type VideoCue = { at: number; until: number; label: string; value: string };
@@ -108,6 +114,36 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
       { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase Hybrid — 3L+N+PE" },
       { at: 5.4, until: 7.4, label: "أقصى جهد PV", value: "800 V" },
       { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.6%" },
+    ],
+  },
+  "deye-sun-29-9-50k-sg01hp3": {
+    src: deye50kVideo.url,
+    poster: deye50kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "29.9 – 50 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase — 3L/N/PE" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "160–800 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.60%" },
+    ],
+  },
+  "deye-sun-60-80k-sg02hp3": {
+    src: deye80kVideo.url,
+    poster: deye80kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "60 – 80 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Three Phase Hybrid — 3L+N+PE" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "160–1000 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "97.60%" },
+    ],
+  },
+  "solis-s6-eh2p-5-8k": {
+    src: solis8kVideo.url,
+    poster: solis8kPoster,
+    cues: [
+      { at: 0.5, until: 3.2, label: "القدرة المقننة", value: "5 – 8 kW" },
+      { at: 3.2, until: 5.4, label: "نوع النظام", value: "Split Phase — L+N+PE/2L+PE" },
+      { at: 5.4, until: 7.4, label: "جهد البطارية", value: "40–60 V" },
+      { at: 7.4, until: 10, label: "أقصى كفاءة", value: "96.0%" },
     ],
   },
 };
