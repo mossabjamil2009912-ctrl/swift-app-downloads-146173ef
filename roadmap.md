@@ -13,5 +13,5 @@
   - [x] deye-sun-29-9-50k-sg01hp3، deye-sun-60-80k-sg02hp3، solis-s6-eh2p-5-8k
   - [x] solis-s6-eh3p-12-20k-h، solis-s6-eh3p-29-9-50k-h، solis-s6-eh3p-75-125k
   - [x] lipower-2012emh
-  - [ ] lipower-bz4024smhgw، pylontech-rv12100ch — المشاهد جاهزة، الفيديو بانتظار الرصيد
-  - [ ] المتبقي (6) في HANDOFF.md — 3 منتجات لكل دفعة
+  - [x] lipower-bz4024smhgw، pylontech-rv12100ch، pylontech-rv12200
+  - [ ] المتبقي (3) في HANDOFF.md — 3 منتجات لكل دفعة
