@@ -422,7 +422,8 @@ function ActesApp() {
       (clean === "pay_cod" || (sourceStep === "pay_method" && (clean === "3" || /الدفع عند الاستلام/.test(clean))));
     // شاشة الانتظار تظهر فقط عند الإرسال الفعلي للإدارة؛ التنقل العادي فوري بلا تعتيم.
     const needsNetwork = Boolean(result) && (isPaymentNotice || isSalesContact || isCodChoice);
-    if (needsNetwork) setBusy(true);
+    // الإرسال للإدارة يتم في الخلفية حتى لا تتأخر الخطوة التالية.
+    if (needsNetwork) setNotificationStatus("sent");
 
 
     // التواصل مع المبيعات والدفع عند الاستلام: إشعار داخل التطبيق للإدارة بلا أزرار تأكيد أو إلغاء
@@ -482,14 +483,9 @@ function ActesApp() {
         total > 0 ? `💰 السعر الإجمالي: ${total}$` : "",
       ].filter(Boolean).join("\n");
 
-      try {
-        await sendWhatsapp({
-          data: { text: lines, clientName: customerName, clientPhone, quoteNumber, method: kindLabel, total, system: notice.system },
-        });
-        setNotificationStatus("sent");
-      } catch {
-        setNotificationStatus("sent");
-      }
+      void sendWhatsapp({
+        data: { text: lines, clientName: customerName, clientPhone, quoteNumber, method: kindLabel, total, system: notice.system },
+      }).catch(() => undefined);
     }
 
 
@@ -544,9 +540,8 @@ function ActesApp() {
 
 
 
-      try {
-        const delivery = await sendWhatsapp({
-          data: {
+      void sendWhatsapp({
+        data: {
             text: notice.text,
             clientName: customerName,
             clientPhone,
@@ -557,12 +552,7 @@ function ActesApp() {
             system: notice.system,
             buttons: ADMIN_NOTICE_BUTTONS(quoteNumber || clean),
           },
-        });
-        void delivery;
-        setNotificationStatus("sent");
-      } catch {
-        setNotificationStatus("sent");
-      }
+      }).catch(() => undefined);
     }
 
     apply(result);
