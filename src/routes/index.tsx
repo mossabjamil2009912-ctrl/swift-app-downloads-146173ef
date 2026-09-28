@@ -232,6 +232,15 @@ function ActesApp() {
   }, [uiLang]);
   const sendWhatsapp = useServerFn(notifyAdminWhatsapp);
 
+  // تحميل صور خطوات الطلب مسبقاً حتى تظهر فوراً عند الانتقال إليها.
+  useEffect(() => {
+    [residentialImage, commercialImage, agricultureImage, industrialImage].forEach((src) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    });
+  }, []);
+
   // رسالة نجاح الإشعار تختفي تلقائياً بعد ٣ ثوانٍ
   useEffect(() => {
     if (notificationStatus !== "sent") return;
@@ -422,7 +431,8 @@ function ActesApp() {
       (clean === "pay_cod" || (sourceStep === "pay_method" && (clean === "3" || /الدفع عند الاستلام/.test(clean))));
     // شاشة الانتظار تظهر فقط عند الإرسال الفعلي للإدارة؛ التنقل العادي فوري بلا تعتيم.
     const needsNetwork = Boolean(result) && (isPaymentNotice || isSalesContact || isCodChoice);
-    if (needsNetwork) setBusy(true);
+    // الإرسال للإدارة يتم في الخلفية حتى لا تتأخر الخطوة التالية.
+    if (needsNetwork) setNotificationStatus("sent");
 
 
     // التواصل مع المبيعات والدفع عند الاستلام: إشعار داخل التطبيق للإدارة بلا أزرار تأكيد أو إلغاء
@@ -482,14 +492,9 @@ function ActesApp() {
         total > 0 ? `💰 السعر الإجمالي: ${total}$` : "",
       ].filter(Boolean).join("\n");
 
-      try {
-        await sendWhatsapp({
-          data: { text: lines, clientName: customerName, clientPhone, quoteNumber, method: kindLabel, total, system: notice.system },
-        });
-        setNotificationStatus("sent");
-      } catch {
-        setNotificationStatus("sent");
-      }
+      void sendWhatsapp({
+        data: { text: lines, clientName: customerName, clientPhone, quoteNumber, method: kindLabel, total, system: notice.system },
+      }).catch(() => undefined);
     }
 
 
@@ -544,9 +549,8 @@ function ActesApp() {
 
 
 
-      try {
-        const delivery = await sendWhatsapp({
-          data: {
+      void sendWhatsapp({
+        data: {
             text: notice.text,
             clientName: customerName,
             clientPhone,
@@ -557,12 +561,7 @@ function ActesApp() {
             system: notice.system,
             buttons: ADMIN_NOTICE_BUTTONS(quoteNumber || clean),
           },
-        });
-        void delivery;
-        setNotificationStatus("sent");
-      } catch {
-        setNotificationStatus("sent");
-      }
+      }).catch(() => undefined);
     }
 
     apply(result);
@@ -1571,7 +1570,7 @@ function OptionGrid({ options, selected, projectCards = false, onSelect }: { opt
           return (
             <button key={`${option.id}-${index}`} type="button" onClick={() => onSelect(option.id)} className={`group overflow-hidden rounded-lg border bg-card text-right shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg ${index === 1 ? "border-brand ring-1 ring-brand" : "border-border"}`}>
               <span data-photo-frame className="relative block aspect-[1.45/1] w-full overflow-hidden border-b border-border bg-muted">
-                <img data-photo src={visual.image} alt="" loading="eager" decoding="sync" fetchPriority="high" className={`size-full object-contain p-1 transition duration-500 group-hover:scale-[1.03] ${inactive ? "opacity-65" : ""}`} />
+                <img data-photo src={visual.image} alt="" loading="eager" decoding="async" fetchPriority="high" className={`size-full object-contain p-1 transition duration-500 group-hover:scale-[1.03] ${inactive ? "opacity-65" : ""}`} />
                 {inactive && <span className="absolute right-2 top-2 rounded-full bg-overlay/55 px-2 py-0.5 text-[10px] font-bold text-brand-foreground">قريباً</span>}
                 <span className={`absolute -bottom-4 right-3 grid size-10 place-items-center rounded-full border-[3px] border-card ${index === 1 ? "bg-brand text-brand-foreground" : "bg-secondary text-skyline"}`}><Icon className="size-4" /></span>
               </span>
@@ -1898,7 +1897,7 @@ function SystemSpecs({ specs }: { specs: View["specs"] }) {
               </div>
               {presentation.image && (
                 <div data-photo-section className="flex h-20 items-center justify-center px-3 py-1">
-                  <img src={presentation.image} loading="lazy" width={912} height={912} alt={group.title} className="size-full object-contain" />
+                  <img src={presentation.image} loading="eager" decoding="async" width={912} height={912} alt={group.title} className="size-full object-contain" />
                 </div>
               )}
               <ul className="mx-2 mb-2 grid gap-1">
